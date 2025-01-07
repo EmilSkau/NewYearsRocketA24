@@ -1,6 +1,6 @@
 class Rocket {
   // attributter
-  int diameter = 10; // diameter
+  int diameter = 5; // diameter
 
   PVector pos;
   float angle = random(radians(-30), radians(30)); // Begræns vinklen til mellem -30 og 30 grader
@@ -41,11 +41,10 @@ class Rocket {
     } else {
       playExplodingSound(); // afspil lyd
 
-      // Tegn eksplosion (du kan tilpasse dette)
       
-      fill(255, 0, 0, alfa);
-      ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
-      alfa--; // gennemsigtighed får raketter til at forsvinde
+      explode(); // Tegn eksplosion i nedarvningen!
+      
+      
     }
   }
 
@@ -66,12 +65,23 @@ class Rocket {
   void checkExplosion() {
     // Tjek om raketten er på vej nedad og har nået minimumshøjden
     if ((velocity.y > 0 || pos.x > width - 20 || pos.x < 20) && pos.y < minHeight) {
-      explode();
+      exploded = true;
     }
   }
 
+  void explode() {} // metode til overwirte
+   
+  
+}
+
+
+/**********************************************/
+
+class MyRocket extends Rocket{
+    @Override
   void explode() {
-    exploded = true;
     // Tilføj eventuelle yderligere eksplosionseffekter her
+    fill(255, 0, 0, alfa);
+    ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
   }
 }
