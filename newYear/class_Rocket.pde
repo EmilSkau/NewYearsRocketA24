@@ -5,7 +5,7 @@ class Rocket {
   PVector pos;
   float angle = random(radians(-30), radians(30)); // Begræns vinklen til mellem -30 og 30 grader
 
-  float xSpeed = random(0.05, 1); // Tilfældig vandret hastighed
+  float xSpeed = random(0.05, 1.5); // Tilfældig vandret hastighed
   float ySpeed = random (-2.8, -1.5); // lodret hastighed som skal tilpasses skærmstørrelsen
   PVector velocity = new PVector(xSpeed, ySpeed);
 
@@ -20,8 +20,7 @@ class Rocket {
   boolean exploded = false;
 
   // lyd
-  boolean soundPayed = false;
-  boolean lift= true; // bruges til bang lyd
+  boolean soundPayed = false; // bruges til lyd
 
   // konstruktør
   Rocket() {
@@ -29,12 +28,8 @@ class Rocket {
   }
 
   // metoder
-
-
-
-
   void playExplodingSound() {
-    if (!soundPayed && !lift) {
+    if (!soundPayed ) {
       singleRocket.play();
       soundPayed = true;
     }
@@ -44,9 +39,13 @@ class Rocket {
     if (!exploded) {
       circle(pos.x, pos.y, diameter);
     } else {
+      playExplodingSound(); // afspil lyd
+
       // Tegn eksplosion (du kan tilpasse dette)
-      fill(255, 0, 0);
+      
+      fill(255, 0, 0, alfa);
       ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+      alfa--; // gennemsigtighed får raketter til at forsvinde
     }
   }
 
@@ -56,7 +55,7 @@ class Rocket {
     float xspeed = random(0.00001, 0.0005); // Begræns den vandrette hastighed
 
     if (!exploded) {
-      
+
       pos.add(velocity);
       velocity.y += yspeed;
       velocity.x += xspeed;
