@@ -22,6 +22,11 @@ class Rocket {
   // lyd
   boolean soundPayed = false; // bruges til lyd
 
+  // pic
+  PImage img = loadImage("C:/Users/Bruger/Desktop/Skole/Programering/Kode/Fyrværkeri/NewYearsRocketA24_GoodRocket/newYear/data/Pic.jpg");
+  int displayDuration = 20000;
+  
+
   // konstruktør
   Rocket() {
     pos = new PVector(random(10, 80), height); // Startposition tilfældigt langs bunden
@@ -86,5 +91,20 @@ class MyRocket extends Rocket{
     
     diameter++;
     alfa--;
+  }
+}
+
+
+class Tomm3634Rocket extends Rocket{
+  @Override
+  void explode() {
+    // Tilføj eventuelle yderligere eksplosionseffekter her
+    if(millis() < displayDuration){
+    tint(255, alfa);
+    image(img, pos.x, pos.y, diameter * 2, diameter * 2);
+    
+    alfa--;
+    diameter++;
+    }
   }
 }
