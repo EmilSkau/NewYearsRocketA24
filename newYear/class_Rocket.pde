@@ -78,6 +78,7 @@ class MyRocket extends Rocket {
     void explode() {
     fill(255, 0, 0, alfa);
     ellipse(pos.x, pos.y, diameter * 3, diameter * 3);
+    noStroke();
     diameter++;
     alfa = alfa-4;
   }
