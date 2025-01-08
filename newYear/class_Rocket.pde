@@ -70,7 +70,6 @@ class Rocket {
   }
 
   void explode() {} // metode til overwirte
-   
   
 }
 
@@ -82,6 +81,10 @@ class MyRocket extends Rocket{
   void explode() {
     // Tilføj eventuelle yderligere eksplosionseffekter her
     fill(255, 0, 0, alfa);
+    noStroke();
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+    
+    diameter++;
+    alfa--;
   }
 }
