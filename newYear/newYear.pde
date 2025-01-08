@@ -1,7 +1,7 @@
 import processing.sound.*; // importer lydbibliotek
 
 SoundFile fireRocket;  
-SoundFile multiRocket;
+SoundFile multiRocket; 
 SoundFile singleRocket;
 
 
@@ -14,7 +14,7 @@ void setup() {
   size(1200, 800);
   background (0);
   for (int i =0; i<rocketBattery.length; i++) {
-    rocketBattery[i] = new Rocket();
+    rocketBattery[i] = new MyRocket();
   }
   
   fireRocket = new SoundFile(this, "start.mp3");
