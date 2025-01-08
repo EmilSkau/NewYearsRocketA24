@@ -78,7 +78,7 @@ class Rocket {
  
 /*********************************************/
 
-class MyNewRocket extends Rocket{
+class Islam extends Rocket{
     @Override
   void explode() {
     diameter= diameter+2;
