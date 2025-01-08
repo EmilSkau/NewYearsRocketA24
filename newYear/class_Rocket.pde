@@ -34,17 +34,14 @@ class Rocket {
       soundPayed = true;
     }
   }
-
   void display() {
     if (!exploded) {
       circle(pos.x, pos.y, diameter);
     } else {
       playExplodingSound(); // afspil lyd
 
-      
+
       explode(); // Tegn eksplosion i nedarvningen!
-      
-      
     }
   }
 
@@ -69,19 +66,19 @@ class Rocket {
     }
   }
 
-  void explode() {} // metode til overwirte
-   
-  
+  void explode() {
+  } // metode til overwirte
 }
 
 
 /**********************************************/
 
-class MyRocket extends Rocket{
-    @Override
-  void explode() {
-    // Tilføj eventuelle yderligere eksplosionseffekter her
+class MyRocket extends Rocket {
+  @Override
+    void explode() {
     fill(255, 0, 0, alfa);
-    ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+    ellipse(pos.x, pos.y, diameter * 3, diameter * 3);
+    diameter++;
+    alfa = alfa-4;
   }
 }
