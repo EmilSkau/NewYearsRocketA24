@@ -91,14 +91,17 @@ class MyRocket extends Rocket{
 }
 
 class luna1306Rocket extends Rocket{
-    @Override
+      @Override
   void explode() {
 
-   diameter +=1;
+   diameter +=random(-10, 10);
    alfa -= 1;
+   b=220;
+   g=50;
+   r+=random(-10, 10);
  noStroke();
-
-    fill(255, 0, 0, alfa);
-    ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+ 
+ fill(r, g, b, alfa);
+     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
   }
 }
