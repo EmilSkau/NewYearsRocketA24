@@ -2,7 +2,7 @@ import processing.sound.*; // importer lydbibliotek
 
 SoundFile fireRocket; 
 SoundFile multiRocket;
-SoundFile singleRocket;
+SoundFile singleRocket; 
 
 
 int listSize = 20;
