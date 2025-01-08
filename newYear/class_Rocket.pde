@@ -75,12 +75,16 @@ class Rocket {
 }
 
 
-/**********************************************/
+ 
+/*********************************************/
 
-class MyRocket extends Rocket{
+class MyNewRocket extends Rocket{
     @Override
   void explode() {
-    // Tilføj eventuelle yderligere eksplosionseffekter her
+    diameter= diameter+2;
+    alfa=alfa-1;
+    noStroke();
+    fill(alfa=145);
     fill(255, 0, 0, alfa);
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
     diameter++;
@@ -98,5 +102,27 @@ class Magn639cRocket extends Rocket{
     diameter++;
     alfa--;
     noStroke();
+  }
+}
+
+
+    
+    
+    
+    
+
+class luna1306Rocket extends Rocket{
+      @Override
+  void explode() {
+
+   diameter +=random(-10, 10);
+   alfa -= 1;
+   b=220;
+   g=50;
+   r+=random(-10, 10);
+ noStroke();
+ 
+ fill(r, g, b, alfa);
+     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
   }
 }

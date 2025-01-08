@@ -1,12 +1,16 @@
 import processing.sound.*; // importer lydbibliotek
 
+
 SoundFile fireRocket; 
 SoundFile multiRocket;
 SoundFile singleRocket; 
 
 
+
 int listSize = 20;
 Rocket[] rocketBattery = new Rocket[listSize];
+Rocket[] rocketBattery2 = new Rocket[listSize];
+Rocket[] rocketBattery3 = new Rocket[listSize];
 
 
 void setup() {
@@ -14,7 +18,16 @@ void setup() {
   size(1200, 800);
   background (0);
   for (int i =0; i<rocketBattery.length; i++) {
-    rocketBattery[i] = new Magn639cRocket();
+
+
+
+
+    rocketBattery[i] = new MyRocket();
+
+    rocketBattery2[i] = new luna1306Rocket();
+    rocketBattery3[i] = new Magn639cRocket();
+
+
   }
   
   fireRocket = new SoundFile(this, "start.mp3");
