@@ -87,6 +87,21 @@ class MyNewRocket extends Rocket{
     fill(alfa=145);
     fill(255, 0, 0, alfa);
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+    diameter++;
+    alfa--;
+    noStroke();
+  }
+}
+
+class Magn639cRocket extends Rocket{
+    @Override
+  void explode() {
+    // Tilføj eventuelle yderligere eksplosionseffekter her
+    fill(r, g, 0, alfa);
+    ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+    diameter++;
+    alfa--;
+    noStroke();
   }
 }
 
