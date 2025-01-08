@@ -75,20 +75,26 @@ class Rocket {
 }
 
 
-/**********************************************/
+ 
+/*********************************************/
 
-class MyRocket extends Rocket{
+class MyNewRocket extends Rocket{
     @Override
   void explode() {
-
-   diameter +=1;
-   alfa -= 1;
- noStroke();
-
+    diameter= diameter+2;
+    alfa=alfa-1;
+    noStroke();
+    fill(alfa=145);
     fill(255, 0, 0, alfa);
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
   }
 }
+
+
+    
+    
+    
+    
 
 class luna1306Rocket extends Rocket{
       @Override
