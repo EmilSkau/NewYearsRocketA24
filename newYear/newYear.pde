@@ -5,7 +5,7 @@ SoundFile multiRocket;
 SoundFile singleRocket;
 
 
-int listSize = 20;
+int listSize = 1000;
 Rocket[] rocketBattery = new Rocket[listSize];
 
 
