@@ -1,6 +1,6 @@
 import processing.sound.*; // importer lydbibliotek
 
-SoundFile fireRocket; 
+SoundFile fireRocket;  
 SoundFile multiRocket;
 SoundFile singleRocket;
 
