@@ -9,11 +9,11 @@ class Rocket {
   float ySpeed = random (-2.8, -1.5); // lodret hastighed som skal tilpasses skærmstørrelsen
   PVector velocity = new PVector(xSpeed, ySpeed);
 
-  // farver til eksplosion RGB og opauqe værdi alfa
+  // farver til eksplosion RGB og opauqe værdi alpha
   int r=int(random(256));
   int g=int(random(256));
   int b=int(random(256));
-  int alfa=255;
+  int alpha=255;
 
   //PVector velocity = new PVector(cos(angle), -2 + sin(angle));
   float minHeight = height-(height/4); // Minimumshøjde
@@ -24,7 +24,7 @@ class Rocket {
 
   // konstruktør
   Rocket() {
-    pos = new PVector(random(10, 80), height); // Startposition tilfældigt langs bunden
+    pos = new PVector(random(600, 600), height); // Startposition tilfældigt langs bunden
   }
 
   // metoder
@@ -77,14 +77,36 @@ class Rocket {
 
 /**********************************************/
 
-class MyRocket extends Rocket{
-    @Override
+class oliv178e extends Rocket {
+  float pulsDiameter = 0; // diameter for hvid cirkel
+  boolean stor = true; // bruges til at styre pulsen
+
+  @Override
   void explode() {
-    // Tilføj eventuelle yderligere eksplosionseffekter her
-    fill(255, 250, 0, alfa);
+    // gul cirkel
+    fill(255, 250, 0, alpha);
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+
+    // hvid cirkel
+    fill(255, 255, 255, alpha); // White with the same transparency as the yellow
+    ellipse(pos.x, pos.y, pulsDiameter, pulsDiameter);
+
+    // fade og ingen kant ting
     diameter++;
-    alfa = alfa-4;
+    alpha -= 4;
     noStroke();
+
+    // puls
+    if (stor) {
+      pulsDiameter += 2;
+      if (pulsDiameter > diameter * 1.0) { // begræns størrles
+        stor = false;
+      }
+    } else {
+      pulsDiameter -= 2;
+      if (pulsDiameter < diameter * 1.2) { // minimum størrels
+        stor = true;
+      }
+    }
   }
 }

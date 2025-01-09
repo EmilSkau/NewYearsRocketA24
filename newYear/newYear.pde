@@ -14,7 +14,7 @@ void setup() {
   size(1200, 800);
   background (0);
   for (int i =0; i<rocketBattery.length; i++) {
-    rocketBattery[i] = new MyRocket();
+    rocketBattery[i] = new oliv178e();
   }
   
   fireRocket = new SoundFile(this, "start.mp3");
