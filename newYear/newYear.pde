@@ -7,8 +7,10 @@ SoundFile singleRocket;
 
 boolean soundPlayed = false;
 
+  //
 
-int listSize = 1000;
+
+
 int listSize = 20;
 Rocket[] rocketBattery1 = new Rocket[listSize];
 Rocket[] rocketBattery2 = new Rocket[listSize];
@@ -33,9 +35,10 @@ void setup() {
     rocketBattery1[i] = new Islam();
     rocketBattery2[i] = new luna1306Rocket();
     rocketBattery3[i] = new Magn639cRocket();
-    
+    rocketBattery3[i] = new Tomm3634Rocket();
     rocketBattery5[i] = new Rocket2();
     rocketBattery6[i] = new Rocket3();
+    
 
   }
 

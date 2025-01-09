@@ -98,6 +98,7 @@ class Islam extends Rocket {
 
 
 class Tomm3634Rocket extends Rocket{
+  PImage img = loadImage("Unavngivet.png");
   @Override
   void explode() {
     // Tilføj eventuelle yderligere eksplosionseffekter her
