@@ -22,6 +22,10 @@ class Rocket {
   // lyd
   boolean soundPayed = false; // bruges til lyd
 
+  // pic
+  PImage img = loadImage("C:/Users/Bruger/Desktop/Skole/Programering/Kode/Fyrværkeri/NewYearsRocketA24_GoodRocket/newYear/data/Pic.jpg");
+  
+
   // konstruktør
   Rocket() {
     pos = new PVector(random(10, 80), height); // Startposition tilfældigt langs bunden
@@ -68,8 +72,9 @@ class Rocket {
     }
   }
 
-  void explode() {
-  } // metode til overwirte
+  void explode() {} // metode til overwirte
+  
+
 }
 
 
@@ -84,7 +89,26 @@ class Islam extends Rocket {
     noStroke();
     fill(alfa=145);
     fill(255, 0, 0, alfa);
+    noStroke();
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+    diameter++;
+    alfa--;
+  }
+}
+
+
+class Tomm3634Rocket extends Rocket{
+  @Override
+  void explode() {
+    // Tilføj eventuelle yderligere eksplosionseffekter her
+    if(alfa > 0){
+      tint(255, alfa);
+      image(img, pos.x, pos.y, diameter * 2, diameter * 2);
+    
+      alfa--;
+      diameter++;
+    }
+
     diameter++;
     alfa--;
     noStroke();
@@ -161,5 +185,6 @@ class Rocket3 extends Rocket {
     popMatrix();
     // gør eksplosion gennemsigtig
     alfa--;
+
   }
 }

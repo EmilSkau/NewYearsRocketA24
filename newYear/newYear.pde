@@ -7,6 +7,8 @@ SoundFile singleRocket;
 
 boolean soundPlayed = false;
 
+
+int listSize = 1000;
 int listSize = 20;
 Rocket[] rocketBattery1 = new Rocket[listSize];
 Rocket[] rocketBattery2 = new Rocket[listSize];
@@ -18,6 +20,7 @@ Rocket[] rocketBattery6 = new Rocket[listSize];
 
 // for at skyde raketter af
 int counter=0;
+
 
 
 void setup() {
@@ -33,6 +36,7 @@ void setup() {
     
     rocketBattery5[i] = new Rocket2();
     rocketBattery6[i] = new Rocket3();
+
   }
 
   fireRocket = new SoundFile(this, "start.mp3");
