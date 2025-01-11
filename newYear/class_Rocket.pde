@@ -75,11 +75,12 @@ class Rocket {
 
 class MyRocket extends Rocket {
   @Override
-    void explode() {
-    fill(255, 0, 0, alfa);
+  void explode() {
+    fill(r, g, b, alfa); //De forskellige farver er taget fra toppen.
     ellipse(pos.x, pos.y, diameter * 3, diameter * 3);
     noStroke();
     diameter++;
-    alfa = alfa-4;
+    alfa = alfa - 4;  //Den fade der er når eksplosionerne kommer
   }
 }
+
