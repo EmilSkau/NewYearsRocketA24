@@ -5,8 +5,8 @@ class Rocket {
   PVector pos;
   float angle = random(radians(-30), radians(30)); // Begræns vinklen til mellem -30 og 30 grader
 
-  float xSpeed = random(0.05, 1.5); // Tilfældig vandret hastighed
-  float ySpeed = random (-2.8, -1.5); // lodret hastighed som skal tilpasses skærmstørrelsen
+  float xSpeed = random(-1.0, 1.0); // Tilfældig vandret hastighed
+  float ySpeed = random (-3, -1.5); // lodret hastighed som skal tilpasses skærmstørrelsen
   PVector velocity = new PVector(xSpeed, ySpeed);
 
   // farver til eksplosion RGB og opauqe værdi alfa
@@ -24,7 +24,7 @@ class Rocket {
 
   // konstruktør
   Rocket() {
-    pos = new PVector(random(10, 80), height); // Startposition tilfældigt langs bunden
+    pos = new PVector(random(600, 80), height); // Startposition tilfældigt langs bunden
   }
 
   // metoder

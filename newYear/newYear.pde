@@ -32,5 +32,15 @@ void draw() {
   rocketBattery[i].display();
   rocketBattery[i].move();
   }
+
+void draw() {
+  background(0);
+
+  fill(255,255,255);
+  // Tegn en rektangel på 50×20, med center i (width/2, height - 10)
+  // (height - 10) sikrer, at rektanglens bund flugter bunden af vinduet,
+  // da rektanglens højde er 20, og halvdelen er 10.
+  rect(width/2, height - 10, 50, 20);
+}
   
 }
