@@ -22,6 +22,10 @@ class Rocket {
   // lyd
   boolean soundPayed = false; // bruges til lyd
 
+  // pic
+  PImage img = loadImage("C:/Users/Bruger/Desktop/Skole/Programering/Kode/Fyrværkeri/NewYearsRocketA24_GoodRocket/newYear/data/Pic.jpg");
+  
+
   // konstruktør
   Rocket() {
     pos = new PVector(random(600, 600), height); // Startposition tilfældigt langs bunden
@@ -37,14 +41,13 @@ class Rocket {
 
   void display() {
     if (!exploded) {
+      fill(255);
       circle(pos.x, pos.y, diameter);
     } else {
       playExplodingSound(); // afspil lyd
 
-      
+
       explode(); // Tegn eksplosion i nedarvningen!
-      
-      
     }
   }
 
@@ -70,12 +73,12 @@ class Rocket {
   }
 
   void explode() {} // metode til overwirte
-   
   
+
 }
 
 
-/**********************************************/
+
 
 class oliv178e extends Rocket {
   float pulsDiameter = 0; // diameter for hvid cirkel
@@ -108,5 +111,116 @@ class oliv178e extends Rocket {
         stor = true;
       }
     }
+  }
+}
+/*********************************************/
+
+class Islam extends Rocket {
+  @Override
+    void explode() {
+    diameter= diameter+2;
+    alfa=alfa-1;
+    noStroke();
+    fill(alfa=145);
+    fill(255, 0, 0, alfa);
+    noStroke();
+    ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+    diameter++;
+    alfa--;
+  }
+}
+
+
+class Tomm3634Rocket extends Rocket{
+  PImage img = loadImage("Unavngivet.png");
+  @Override
+  void explode() {
+    // Tilføj eventuelle yderligere eksplosionseffekter her
+    if(alfa > 0){
+      tint(255, alfa);
+      image(img, pos.x, pos.y, diameter * 2, diameter * 2);
+    
+      alfa--;
+      diameter++;
+    }
+
+    diameter++;
+    alfa--;
+    noStroke();
+  }
+}
+
+class Magn639cRocket extends Rocket {
+  @Override
+    void explode() {
+    // Tilføj eventuelle yderligere eksplosionseffekter her
+    fill(r, g, 0, alfa);
+    ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+    diameter++;
+    alfa--;
+    noStroke();
+  }
+}
+
+
+
+
+
+
+
+class luna1306Rocket extends Rocket {
+  @Override
+    void explode() {
+
+    diameter +=random(-10, 10);
+    alfa -= 1;
+    b=220;
+    g=50;
+    r+=random(-10, 10);
+    noStroke();
+    fill(r, g, b, alfa);
+   ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+  }
+}
+    
+
+/*************************************/
+
+
+/*************************************/
+
+class Rocket2 extends Rocket {
+  void explode() {
+    pushMatrix();
+    translate(pos.x, pos.y);
+    stroke(r, b, g, alfa);
+    for (int i=0; i<360; i++) {
+      fill(r, g, b, alfa);
+      rect(0, 0, 0, 1*i);
+      rotate(1);
+    }
+    popMatrix();
+    // gør eksplosion gennemsigtig
+    alfa-=2;
+  }
+}
+
+/*************************************/
+
+class Rocket3 extends Rocket {
+  void explode() {
+    pushMatrix();
+    translate(pos.x, pos.y);
+    stroke(r, b, g, alfa);
+
+    for (int i=0; i<100; i++) {
+      fill(r, g, b, alfa);
+      rect(0, 0, 0, 1*i);
+      rotate(1);
+    }
+    popMatrix();
+    // gør eksplosion gennemsigtig
+    alfa--;
+
   }
 }
