@@ -1,12 +1,12 @@
 class Rocket {
   // attributter
   int diameter = 10; // diameter
-  
+
   int expR = (int) random(0, 256); // random RGB farvekoder for hver eksplosion/raket.
   int expG = (int) random(0, 256);
   int expB = (int) random(0, 256);
   int alfa=255;
-  
+
   PVector pos;
   float angle = random(radians(-30), radians(30)); // Begræns vinklen til mellem -30 og 30 grader
 
@@ -31,10 +31,12 @@ class Rocket {
   // konstruktør
   Rocket() {
 
-    pos = new PVector(random(10, 400), height); // Startposition tilfældigt langs bunden
-          // Ændrede på intervallet, da jeg gerne vil have at raketterne er lidt mere spredt ud.
+    //    pos = new PVector(random(10, 400), height); // Startposition tilfældigt langs bunden
+    pos = new PVector(random(600, 80), height); // Startposition tilfældigt langs bunden
+
+    // Ændrede på intervallet, da jeg gerne vil have at raketterne er lidt mere spredt ud.
   }
-  
+
   // metoder
   void playExplodingSound() {
     if (!soundPayed ) {
@@ -43,12 +45,12 @@ class Rocket {
     }
   }
   void display() {
+    fill(255);
     if (!exploded) {
       circle(pos.x, pos.y, diameter);
-    } 
-    else {
+    } else {
       playExplodingSound(); // afspil lyd
-      explode(6); // Tegn eksplosion i nedarvningen!
+      explode(); // Tegn eksplosion i nedarvningen!
     }
   }
 
@@ -73,52 +75,58 @@ class Rocket {
   }
 
 
-  void explode(int nParticles) // Koden udføres kun hvis jeg putter det i den her funktion, så jeg ved ikke helt hvorfor du skrev at vi skal skrive det i override funktionen...
+  // metode til overwirte
+
+  void explode() {
+  } // metode til overwirte
+}
+/*************************************/
+class Thore extends Rocket {
+  int nParticles = 6; // har jeg været nød til :)
+  ExplodeParticle[] particles = new ExplodeParticle[nParticles];
+
+
+  Thore() { // tilføjet konstruktør
+    for (int i = 0; i < particles.length; i++)
+    {
+      particles[i] = new ExplodeParticle(); // her initiere jeg hver af de 6 partikler for en eksplosion.
+    }
+  }
+
+  void explode() // Koden udføres kun hvis jeg putter det i den her funktion, så jeg ved ikke helt hvorfor du skrev at vi skal skrive det i override funktionen...
   {
-      ExplodeParticle[] particles = new ExplodeParticle[nParticles];
-     for(int i = 0; i < particles.length; i++) 
-     {
-       particles[i] = new ExplodeParticle(); // her initiere jeg hver af de 6 partikler for en eksplosion.
-     }
-    fill(expR, expG, expB, alfa); 
+    fill(expR, expG, expB, alfa);
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
     ellipse(pos.x, pos.y, diameter * 1.3, diameter * 1.3); // Tilføjede endnu en ring til eksplosionen, for at det ligner lydbølger på en måde.
     diameter++; // inkrementere værdien af diameter med 1
     alfa -= 3; // dekrementere værdien af alfa med 3 (jeg valgte 3 fordi jeg syntes at det varede for lang tid)
-    for(int k = 0; k < 6; k++) 
+
+    for (int k = 0; k < particles.length; k++) // Jeg har rettet det til particles.length for at undgå migic numbers og at man skal rette hvis længden ændre sig
     {
       float rndX = random(-30, 31);
       float rndY = random(-30, 31);
       particles[k].displayParticle(rndX + pos.x, rndY + pos.y); // Og nu tegner jeg hver partikel, med en tilfældig placering rundt om eksplosionen.
-                                     // det er vigtigt at have "+ pos.x" og "+ pos.y", for at sørge for at partiklerne er placeret rundt om den specfikke eksplosion.
-    } 
-  } // metode til overwirte
-
-  void explode() {} // metode til overwirte
-  
-
-
+      // det er vigtigt at have "+ pos.x" og "+ pos.y", for at sørge for at partiklerne er placeret rundt om den specfikke eksplosion.
+    }
+  }
 }
-
-
-
-
+/*************************************/
 class Alexander extends Rocket {
   @Override
-  void explode() {
+    void explode() {
     fill(r, g, b, alpha); //De forskellige farver er taget fra toppen.
     ellipse(pos.x, pos.y, diameter * 3, diameter * 3);
-    noStroke();
     diameter++;
     alpha = alpha - 4;  //Den fade der er når eksplosionerne kommer
-}}
-
+  }
+}
+/*************************************/
 class oliv178e extends Rocket {
   float pulsDiameter = 0; // diameter for hvid cirkel
   boolean stor = true; // bruges til at styre pulsen
 
   @Override
-  void explode() {
+    void explode() {
     // gul cirkel
     fill(255, 250, 0, alpha);
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
@@ -147,7 +155,6 @@ class oliv178e extends Rocket {
   }
 }
 /*********************************************/
-
 class Islam extends Rocket {
   @Override
     void explode() {
@@ -162,17 +169,16 @@ class Islam extends Rocket {
     alpha--;
   }
 }
-
-
-class Tomm3634Rocket extends Rocket{
+/*************************************/
+class Tomm3634Rocket extends Rocket {
   PImage img = loadImage("Unavngivet.png");
   @Override
-  void explode() {
+    void explode() {
     // Tilføj eventuelle yderligere eksplosionseffekter her
-    if(alpha > 0){
+    if (alpha > 0) {
       tint(255, alpha);
       image(img, pos.x, pos.y, diameter * 2, diameter * 2);
-    
+
       alpha--;
       diameter++;
     }
@@ -182,7 +188,7 @@ class Tomm3634Rocket extends Rocket{
     noStroke();
   }
 }
-
+/*************************************/
 class Magn639cRocket extends Rocket {
   @Override
     void explode() {
@@ -193,13 +199,8 @@ class Magn639cRocket extends Rocket {
     alpha--;
     noStroke();
   }
-
 }
-
-
 /**********************************************/
-
-
 class luna1306Rocket extends Rocket {
   @Override
     void explode() {
@@ -211,16 +212,10 @@ class luna1306Rocket extends Rocket {
     r+=random(-10, 10);
     noStroke();
     fill(r, g, b, alpha);
-   ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
+    ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
   }
 }
-    
-
 /*************************************/
-
-
-/*************************************/
-
 class Rocket2 extends Rocket {
   void explode() {
     pushMatrix();
@@ -236,9 +231,7 @@ class Rocket2 extends Rocket {
     alpha-=2;
   }
 }
-
 /*************************************/
-
 class Rocket3 extends Rocket {
   void explode() {
     pushMatrix();
@@ -253,7 +246,5 @@ class Rocket3 extends Rocket {
     popMatrix();
     // gør eksplosion gennemsigtig
     alpha--;
-
-
   }
 }
