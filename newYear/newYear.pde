@@ -30,15 +30,19 @@ void setup() {
   size(1200, 800);
   background (0);
 
+
   // initering af raketter
   for (int i =0; i<rocketBattery1.length; i++) {
     rocketBattery1[i] = new Islam();
     rocketBattery2[i] = new luna1306Rocket();
     rocketBattery3[i] = new Magn639cRocket();
-    rocketBattery3[i] = new Tomm3634Rocket();
-    rocketBattery5[i] = new Rocket2();
-    rocketBattery6[i] = new Rocket3();
+    rocketBattery4[i] = new Tomm3634Rocket();
+    rocketBattery5[i] = new oliv178e();
+    rocketBattery6[i] = new Rocket2();
+    rocketBattery7[i] = new Rocket3();
     
+    
+
 
   }
 
@@ -64,6 +68,9 @@ void draw() {
   }
   if (counter==5) {
     fire(rocketBattery6);
+  }
+  if (counter==6) {
+    fire(rocketBattery7);
   }
 
 }
@@ -91,3 +98,4 @@ void fire(Rocket[] rocketList) {
     rocketList[i].move();
   }
 }
+
