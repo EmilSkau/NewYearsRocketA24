@@ -82,14 +82,14 @@ class Rocket {
 
 
 
-class MyRocket extends Rocket {
+class Alexander extends Rocket {
   @Override
   void explode() {
-    fill(r, g, b, alfa); //De forskellige farver er taget fra toppen.
+    fill(r, g, b, alpha); //De forskellige farver er taget fra toppen.
     ellipse(pos.x, pos.y, diameter * 3, diameter * 3);
     noStroke();
     diameter++;
-    alfa = alfa - 4;  //Den fade der er når eksplosionerne kommer
+    alpha = alpha - 4;  //Den fade der er når eksplosionerne kommer
 }}
 
 class oliv178e extends Rocket {
@@ -131,14 +131,14 @@ class Islam extends Rocket {
   @Override
     void explode() {
     diameter= diameter+2;
-    alfa=alfa-1;
+    alpha=alpha-1;
     noStroke();
-    fill(alfa=145);
-    fill(255, 0, 0, alfa);
+    fill(alpha=145);
+    fill(255, 0, 0, alpha);
     noStroke();
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
     diameter++;
-    alfa--;
+    alpha--;
   }
 }
 
@@ -148,16 +148,16 @@ class Tomm3634Rocket extends Rocket{
   @Override
   void explode() {
     // Tilføj eventuelle yderligere eksplosionseffekter her
-    if(alfa > 0){
-      tint(255, alfa);
+    if(alpha > 0){
+      tint(255, alpha);
       image(img, pos.x, pos.y, diameter * 2, diameter * 2);
     
-      alfa--;
+      alpha--;
       diameter++;
     }
 
     diameter++;
-    alfa--;
+    alpha--;
     noStroke();
   }
 }
@@ -166,10 +166,10 @@ class Magn639cRocket extends Rocket {
   @Override
     void explode() {
     // Tilføj eventuelle yderligere eksplosionseffekter her
-    fill(r, g, 0, alfa);
+    fill(r, g, 0, alpha);
     ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
     diameter++;
-    alfa--;
+    alpha--;
     noStroke();
   }
 }
@@ -185,12 +185,12 @@ class luna1306Rocket extends Rocket {
     void explode() {
 
     diameter +=random(-10, 10);
-    alfa -= 1;
+    alpha -= 1;
     b=220;
     g=50;
     r+=random(-10, 10);
     noStroke();
-    fill(r, g, b, alfa);
+    fill(r, g, b, alpha);
    ellipse(pos.x, pos.y, diameter * 2, diameter * 2);
   }
 }
@@ -205,15 +205,15 @@ class Rocket2 extends Rocket {
   void explode() {
     pushMatrix();
     translate(pos.x, pos.y);
-    stroke(r, b, g, alfa);
+    stroke(r, b, g, alpha);
     for (int i=0; i<360; i++) {
-      fill(r, g, b, alfa);
+      fill(r, g, b, alpha);
       rect(0, 0, 0, 1*i);
       rotate(1);
     }
     popMatrix();
     // gør eksplosion gennemsigtig
-    alfa-=2;
+    alpha-=2;
   }
 }
 
@@ -223,18 +223,17 @@ class Rocket3 extends Rocket {
   void explode() {
     pushMatrix();
     translate(pos.x, pos.y);
-    stroke(r, b, g, alfa);
+    stroke(r, b, g, alpha);
 
     for (int i=0; i<100; i++) {
-      fill(r, g, b, alfa);
+      fill(r, g, b, alpha);
       rect(0, 0, 0, 1*i);
       rotate(1);
     }
     popMatrix();
     // gør eksplosion gennemsigtig
-    alfa--;
+    alpha--;
 
 
   }
 }
-
