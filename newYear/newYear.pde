@@ -1,9 +1,13 @@
 import processing.sound.*; // importer lydbibliotek
 
-
-SoundFile fireRocket;
+SoundFile fireRocket; 
 SoundFile multiRocket;
 SoundFile singleRocket;
+
+
+public int listSize = 30; // Øgede listSize for at have flere farver. Ellers har jeg ikke ændrede på noget på denne side.
+
+
 
 
 boolean soundPlayed = false;
@@ -43,15 +47,18 @@ void setup() {
     rocketBattery8[i] = new Rocket3();
     
    
-  }
 
+  }
   fireRocket = new SoundFile(this, "start.mp3");
   multiRocket = new SoundFile(this, "multiRaket.mp3");
   singleRocket = new SoundFile(this, "raket1.mp3");
 
-
+  
   // for at undgå at den bliver afspillet 60x i sek
   fireRocket.play(); // Afspil startlyd når raketten begynder at bevæge sig
+
+
+
 }
 
 
@@ -106,13 +113,6 @@ void playSound() {
     soundPlayed = true;
     fireRocket.play();
   }
+
 }
 
-
-void fire(Rocket[] rocketList) {
-  playSound();
-  for (int i =0; i<rocketList.length; i++) {
-    rocketList[i].display();
-    rocketList[i].move();
-  }
-}
