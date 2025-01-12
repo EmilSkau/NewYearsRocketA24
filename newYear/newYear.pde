@@ -5,11 +5,8 @@ SoundFile fireRocket;
 SoundFile multiRocket;
 SoundFile singleRocket;
 
+
 boolean soundPlayed = false;
-
-  //
-
-
 
 int listSize = 20;
 Rocket[] rocketBattery1 = new Rocket[listSize];
@@ -24,10 +21,14 @@ Rocket[] rocketBattery6 = new Rocket[listSize];
 int counter=0;
 
 
-
 void setup() {
-
   size(1200, 800);
+
+  background(0);
+  
+  for (int i = 0; i < rocketBattery.length; i++) {
+    rocketBattery[i] = new MyRocket();
+
   background (0);
 
 
@@ -41,14 +42,32 @@ void setup() {
     rocketBattery6[i] = new Rocket2();
     rocketBattery7[i] = new Rocket3();
     
-    
-
-
   }
 
   fireRocket = new SoundFile(this, "start.mp3");
   multiRocket = new SoundFile(this, "multiRaket.mp3");
   singleRocket = new SoundFile(this, "raket1.mp3");
+
+
+  // for at undgå at den bliver afspillet 60x i sek
+  fireRocket.play(); // Afspil startlyd når raketten begynder at bevæge sig
+}
+
+void draw() {
+  background(0);
+  
+  for (int i = 0; i < rocketBattery.length; i++) {
+    rocketBattery[i].display();
+    rocketBattery[i].move();
+  }
+
+//batteri / kasse
+//  rectMode(CENTER);
+//  fill(170, 66, 255);
+//  noStroke();
+
+//  rect(width/2, height - 10, 50, 20); //Width er divideret med 2 for at få midten
+
 }
 
 void draw() {
