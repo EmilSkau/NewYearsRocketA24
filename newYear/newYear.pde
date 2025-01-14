@@ -22,6 +22,9 @@ Rocket[] rocketBattery6 = new Rocket[listSize];
 Rocket[] rocketBattery7 = new Rocket[listSize];
 Rocket[] rocketBattery8 = new Rocket[listSize];
 Rocket[] rocketBattery9 = new Rocket[listSize];
+Rocket[] rocketBattery10 = new Rocket[listSize];
+
+
 
 
 // for at skyde raketter af
@@ -40,9 +43,10 @@ void setup() {
     rocketBattery4[i] = new Tomm3634Rocket();
     rocketBattery5[i] = new oliv178e();
     rocketBattery6[i] = new Alexander();
-    rocketBattery6[i] = new Thore();
-    rocketBattery7[i] = new Rocket2();
-    rocketBattery8[i] = new Rocket3();
+    rocketBattery7[i] = new Thore();
+    rocketBattery8[i] = new Rocket2();
+    rocketBattery9[i] = new Rocket3();
+    rocketBattery10[i] = new asbj2247();
   }
   fireRocket = new SoundFile(this, "start.mp3");
   multiRocket = new SoundFile(this, "multiRaket.mp3");
@@ -65,29 +69,41 @@ void setup() {
 
 void draw() {
   background (0);
-  if (counter==0) {
+
+  switch(counter) {
+  case 1:
     fire(rocketBattery1);
-  }
-  if (counter==1) {
+    break;
+  case 2:
     fire(rocketBattery2);
-  }
-  if (counter==2) {
+    break;
+  case 3:
     fire(rocketBattery3);
-  }
-  if (counter==3) {
+    break;
+  case 4:
     fire(rocketBattery4);
-  }
-  if (counter==4) {
+    break;
+  case 5:
     fire(rocketBattery5);
-  }
-  if (counter==5) {
+    break;
+  case 6:
     fire(rocketBattery6);
-  }
-  if (counter==6) {
+    break;
+  case 7:
     fire(rocketBattery7);
-  }
-  if (counter==7) {
+    break;
+  case 8:
     fire(rocketBattery8);
+    break;
+  case 9:
+    fire(rocketBattery9);
+    break;
+  case 10:
+    fire(rocketBattery10);
+    break;
+  default:
+    fire(rocketBattery1);
+    break;
   }
 }
 
